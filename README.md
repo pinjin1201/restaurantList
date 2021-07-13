@@ -25,6 +25,8 @@
 
 3. 安裝 npm 套件 `npm install`
 
-4. 啟動專案 `npm run dev`
+4. 安裝 nodemon 套件 `npm install -g nodemon`
 
-5. 終端機出現以下訊息後，即可在 http://localhost:3000 開始使用 `Express is listening on localhost:3000`
+5. 啟動專案 `npm run dev`
+
+6. 終端機出現以下訊息後，即可在 http://localhost:3000 開始使用 `Express is listening on localhost:3000`
