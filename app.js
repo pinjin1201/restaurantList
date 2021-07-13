@@ -1,3 +1,5 @@
+// 搜尋、瀏覽、show page頁面
+
 // 載入 Express
 const express = require('express')
 const app = express()
