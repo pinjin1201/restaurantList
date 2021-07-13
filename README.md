@@ -1,6 +1,6 @@
 # Restaurant List
 
-8間最愛的餐廳紀錄網站
+瀏覽、查閱及搜尋最愛餐廳的紀錄網站
 
 ## Features
 
