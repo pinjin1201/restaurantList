@@ -10,7 +10,7 @@ const port = 3000
 // 載入 Express-handlebars
 const exphbs = require('express-handlebars')
 
-// 載入 restaurant.json
+// 載入 restaurant data
 const restaurants = require('./restaurant.json')
 
 // 設定 把樣板引擎交給 Express-handlebars
@@ -22,7 +22,7 @@ app.use(express.static('public'))
 
 // Handle request and response here
 app.get('/', (req, res) => {
-  res.render('index', { restaurants: restaurants.results })
+  res.render('index', { restaurant: restaurants.results })
 })
 
 // 設定 show-page 路徑
@@ -35,12 +35,19 @@ app.get('/restaurants/:restaurants_id', (req, res) => {
 // 設定 search 路徑
 app.get('/search', (req, res) => {
   // console.log('req.query', req.query)
-  const keyword = req.query.keyword
+  const keyword = req.query.keyword.trim()
+  const restaurant = restaurants.results.filter(restaurant => 
+    restaurant.name.toLowerCase().includes(req.query.keyword.toLowerCase()) ||
+    restaurant.category.toLowerCase().includes(req.query.keyword.toLowerCase())
+  )
+  /*
   const restaurant = restaurants.results.filter(restaurant => {
-    return restaurant.name.includes(keyword)
+    const name = restaurant.name.toLocaleLowerCase().includes(keyword.toLocaleLowerCase())
+    const category = restaurant.category.toLocaleLowerCase().includes(keyword.toLocaleLowerCase())
+    return name || category
   })
-
-  res.render('index', { restaurants: restaurant })
+  */
+  res.render('index', { restaurant })
 })
 
 // Start and listen the server
